@@ -1,8 +1,6 @@
 importScripts('https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js');
 importScripts('https://www.gstatic.com/firebasejs/5.6.0/firebase-messaging.js');
 
-var messaging = firebase.messaging();
-
 // firebaseコンフィグ
 var config = {
 	apiKey: "AIzaSyBqtqrnzRPl8swfPwvlwlC7CfkAL5J6-zA",
@@ -13,6 +11,9 @@ var config = {
 	messagingSenderId: "182384246777"
 };
 firebase.initializeApp(config);
+
+var messaging = firebase.messaging();
+
 
 messaging.setBackgroundMessageHandler(function(payload) {
   console.log('[firebase-messaging-sw.js] Received background message ', payload);
