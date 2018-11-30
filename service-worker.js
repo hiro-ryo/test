@@ -35,6 +35,6 @@ self.addEventListener("push", function(event) {
 self.addEventListener("notificationclick", function(event) {
   event.notification.close();
   event.waitUntil(
-    clients.openWindow("https://hiro-ryo.github.io/big-apple/")
+    clients.openWindow("https://hiro-ryo.github.io/test/")
   );
 });
