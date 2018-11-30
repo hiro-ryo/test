@@ -15,13 +15,7 @@
   <title>BIG APPLE Scheduler</title>
   <!-- manifest.jsonを呼び出しています -->
   <link rel="manifest" href="./manifest.json">
-  <script type="text/javascript">
-    // service workerが有効なら、service-worker.js を登録します
-    if ('serviceWorker' in navigator) {
-      console.log("service-worker ON");
-      navigator.serviceWorker.register("./firebase-messaging-sw.js").then(function() { console.log('Service Worker Registered'); });
-   }
-  </script>
+  
 </head>
 
 <body>
@@ -51,6 +45,15 @@
   <script type="text/javascript" src="https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/firebasejs/5.6.0/firebase-messaging.js"></script>
   <script type="text/javascript" src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
+  
+  <script type="text/javascript">
+    // service workerが有効なら、service-worker.js を登録します
+    if ('serviceWorker' in navigator) {
+      console.log("service-worker ON");
+      navigator.serviceWorker.register("./firebase-messaging-sw.js").then(function() { console.log('Service Worker Registered'); });
+   }
+  </script>
+  
   <script type="text/javascript" src="./js/base.js"></script>
 </body>
 </html>
