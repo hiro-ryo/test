@@ -46,14 +46,14 @@ window.onload = function(){
 	// メッセージ機能を定義
 	const messaging = firebase.messaging();
 	// push証明書を紐つけ
-	messaging.usePublicVapidKey("BEAl0HPrBGEYZpC_ueHQDmHkTTiniie2cPLTh7q90asdo9pneVNhtD4SssxUbUW9hTx0Z2F1YZ8w9GOQggJoygM ");
+	//messaging.usePublicVapidKey("BEAl0HPrBGEYZpC_ueHQDmHkTTiniie2cPLTh7q90asdo9pneVNhtD4SssxUbUW9hTx0Z2F1YZ8w9GOQggJoygM ");
 	// 通知を受信許可を確認
-	messaging.requestPermission().then(function() {
-		console.log('Notification permission granted.');
-		// TODO(developer): Retrieve an Instance ID token for use with FCM.
-	}).catch(function(err) {
-		console.log('Unable to get permission to notify.', err);
-	});
+	//messaging.requestPermission().then(function() {
+	//	console.log('Notification permission granted.');
+	//	// TODO(developer): Retrieve an Instance ID token for use with FCM.
+	//}).catch(function(err) {
+	//	console.log('Unable to get permission to notify.', err);
+	//});
 	
 	//var token = messaging.getToken()
 	//console.log(token);
