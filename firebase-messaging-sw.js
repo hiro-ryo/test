@@ -11,10 +11,6 @@ self.addEventListener('activate', function(e) {
 // 現状では、この処理を書かないとService Workerが有効と判定されないようです
 self.addEventListener('fetch', function(event) {});
 
-importScripts("/__/firebase/4.10.0/firebase-app.js");
-importScripts("/__/firebase/4.10.0/firebase-messaging.js");
-importScripts("/__/firebase/init.js");
-
 // firebaseCM
 var messaging = firebase.messaging();
 
