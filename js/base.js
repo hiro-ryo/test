@@ -55,8 +55,8 @@ window.onload = function(){
 		console.log('Unable to get permission to notify.', err);
 	});
 	
-	var token = messaging.getToken()
-	console.log(token);
+	//var token = messaging.getToken()
+	//console.log(token);
 	
 };
 
