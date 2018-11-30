@@ -12,7 +12,7 @@ var config = {
 	storageBucket: "big-apple-f214e.appspot.com",
 	messagingSenderId: "182384246777"
 };
-firebase.initializeApp({config);
+firebase.initializeApp(config);
 
 messaging.setBackgroundMessageHandler(function(payload) {
   console.log('[firebase-messaging-sw.js] Received background message ', payload);
