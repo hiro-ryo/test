@@ -1,6 +1,5 @@
-importScripts('/__/firebase/5.5.6/firebase-app.js');
-importScripts('/__/firebase/5.5.6/firebase-messaging.js');
-importScripts('/__/firebase/init.js');
+importScripts('https://www.gstatic.com/firebasejs/5.6.0/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/5.6.0/firebase-messaging.js');
 
 var messaging = firebase.messaging();
 
