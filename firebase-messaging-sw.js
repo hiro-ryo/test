@@ -4,7 +4,7 @@ importScripts('https://www.gstatic.com/firebasejs/5.6.0/firebase-messaging.js');
 var messaging = firebase.messaging();
 
 firebase.initializeApp({
-  messagingSenderId: "182384246777";
+  messagingSenderId: "182384246777"
 });
 
 messaging.setBackgroundMessageHandler(function(payload) {
