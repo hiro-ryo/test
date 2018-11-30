@@ -1,3 +1,23 @@
+importScripts('/__/firebase/5.5.6/firebase-app.js');
+importScripts('/__/firebase/5.5.6/firebase-messaging.js');
+importScripts('/__/firebase/init.js');
+
+var messaging = firebase.messaging();
+
+messaging.setBackgroundMessageHandler(function(payload) {
+  console.log('[firebase-messaging-sw.js] Received background message ', payload);
+  // Customize notification here
+  var notificationTitle = 'Background Message Title';
+  var notificationOptions = {
+    body: 'Background Message body.',
+    icon: './img/BIG_APPLE.png'
+  };
+
+  return self.registration.showNotification(notificationTitle,
+    notificationOptions);
+});
+
+
 // service-worker.js
 self.addEventListener('install', function(e) {
   console.log('[ServiceWorker] Install');

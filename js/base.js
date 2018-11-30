@@ -123,8 +123,9 @@ function requestPermission(messaging) {
 
 function viewToken(messaging){
 	messaging.getToken().then(function(currentToken) {
+	console.log(currentToken);
 	if (currentToken) {
-		console.log('トークンにゃ : '+ currentToken);//フキダシにトークンを表示。functionはmain.jsに定義。
+		console.log('トークンにゃ : '+ currentToken);//フキダシにトークンを表示。
 	}
 	else{
 		// Show permission request.
