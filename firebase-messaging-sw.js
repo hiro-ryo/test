@@ -3,6 +3,10 @@ importScripts('https://www.gstatic.com/firebasejs/5.6.0/firebase-messaging.js');
 
 var messaging = firebase.messaging();
 
+firebase.initializeApp({
+  messagingSenderId: "182384246777";
+});
+
 messaging.setBackgroundMessageHandler(function(payload) {
   console.log('[firebase-messaging-sw.js] Received background message ', payload);
   // Customize notification here
