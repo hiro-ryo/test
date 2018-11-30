@@ -1,4 +1,15 @@
 window.onload = function(){
+	// firebaseコンフィグ
+	var config = {
+		apiKey: "AIzaSyBqtqrnzRPl8swfPwvlwlC7CfkAL5J6-zA",
+		authDomain: "big-apple-f214e.firebaseapp.com",
+		databaseURL: "https://big-apple-f214e.firebaseio.com",
+		projectId: "big-apple-f214e",
+		storageBucket: "big-apple-f214e.appspot.com",
+		messagingSenderId: "182384246777"
+	};
+	firebase.initializeApp(config);
+	
 	
 	// firestoreインスタンスの生成
 	var db = firebase.firestore();
