@@ -35,12 +35,31 @@
         <div class="btn_area">
           <button id="get_btn">イベント取得</button>
           <button id="add_btn">イベント追加</button>
-          <br><input type="button" id="gettoken_btn"  value="許可する">
         </div>
       </div>
     </div>
     <div class="fotter">Copycenter 2018 Hirose Limited.</div>
   </div>
+  
+  <script type="text/javascript" src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-auth.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-messaging.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase-functions.js"></script>
+  <script type="text/javascript">
+  // firebaseコンフィグ
+    var config = {
+        apiKey: "AIzaSyBqtqrnzRPl8swfPwvlwlC7CfkAL5J6-zA",
+        authDomain: "big-apple-f214e.firebaseapp.com",
+        databaseURL: "https://big-apple-f214e.firebaseio.com",
+        projectId: "big-apple-f214e",
+        storageBucket: "big-apple-f214e.appspot.com",
+        messagingSenderId: "182384246777"
+    };
+    firebase.initializeApp(config);
+  </script>
   
   <script type="application/javascript">
     // service workerが有効なら、service-worker.js を登録します
@@ -49,7 +68,8 @@
       navigator.serviceWorker.register("service-worker.js").then(function() { console.log('Service Worker Registered'); });
    }
   </script>
-  <script type="text/javascript" src="https://www.gstatic.com/firebasejs/5.6.0/firebase.js"></script>
+  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/push.js/0.0.11/push.min.js"></script>
   <script type="text/javascript" src="./js/base.js"></script>
 </body>

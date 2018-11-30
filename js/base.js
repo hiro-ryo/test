@@ -1,15 +1,4 @@
 window.onload = function(){
-	// firebaseコンフィグ
-	var config = {
-		apiKey: "AIzaSyBqtqrnzRPl8swfPwvlwlC7CfkAL5J6-zA",
-		authDomain: "big-apple-f214e.firebaseapp.com",
-		databaseURL: "https://big-apple-f214e.firebaseio.com",
-		projectId: "big-apple-f214e",
-		storageBucket: "big-apple-f214e.appspot.com",
-		messagingSenderId: "182384246777"
-	};
-	firebase.initializeApp(config);
-	
 	
 	// firestoreインスタンスの生成
 	var db = firebase.firestore();
@@ -52,21 +41,23 @@ window.onload = function(){
 		document.getElementById("event_title").value = "";
 		document.getElementById("event_date").value = "";
 		
-		// push通知作成
-		Push.create(
-			"プッシュ通知です", {
-			body: "テスト通知",
-			icon: "./img/BIG_APPLE.png",
-			timeout: 4000,
-			onClick: function () {
-				window.focus();
-				this.close();
-			}
-		});
-		
 	};
 	
-
+	// メッセージ機能を定義
+	const messaging = firebase.messaging();
+	// push証明書を紐つけ
+	messaging.usePublicVapidKey("BEAl0HPrBGEYZpC_ueHQDmHkTTiniie2cPLTh7q90asdo9pneVNhtD4SssxUbUW9hTx0Z2F1YZ8w9GOQggJoygM ");
+	// 通知を受信許可を確認
+	messaging.requestPermission().then(function() {
+		console.log('Notification permission granted.');
+		// TODO(developer): Retrieve an Instance ID token for use with FCM.
+	}).catch(function(err) {
+		console.log('Unable to get permission to notify.', err);
+	});
+	
+	var token = messaging.getToken()
+	console.log(token);
+	
 };
 
 // イベント追加関数
