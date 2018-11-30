@@ -58,7 +58,9 @@ window.onload = function(){
 	};
 	
 	// token取得クリック時
-	requestPermission(messaging);
+	document.getElementById("gettoken_btn").onclick = function() {
+		requestPermission(messaging);
+	};
 	
 	
 	// 通知許可ウィンドウ
