@@ -3,9 +3,16 @@ importScripts('https://www.gstatic.com/firebasejs/5.6.0/firebase-messaging.js');
 
 var messaging = firebase.messaging();
 
-firebase.initializeApp({
-  messagingSenderId: "182384246777"
-});
+// firebaseコンフィグ
+var config = {
+	apiKey: "AIzaSyBqtqrnzRPl8swfPwvlwlC7CfkAL5J6-zA",
+	authDomain: "big-apple-f214e.firebaseapp.com",
+	databaseURL: "https://big-apple-f214e.firebaseio.com",
+	projectId: "big-apple-f214e",
+	storageBucket: "big-apple-f214e.appspot.com",
+	messagingSenderId: "182384246777"
+};
+firebase.initializeApp({config);
 
 messaging.setBackgroundMessageHandler(function(payload) {
   console.log('[firebase-messaging-sw.js] Received background message ', payload);
