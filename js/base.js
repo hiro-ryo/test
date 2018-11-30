@@ -56,7 +56,7 @@ window.onload = function(){
 		Push.create(
 			"プッシュ通知です", {
 			body: "テスト通知",
-			icon: "../img/BIG_APPLE.png",
+			icon: "./img/BIG_APPLE.png",
 			timeout: 4000,
 			onClick: function () {
 				window.focus();
