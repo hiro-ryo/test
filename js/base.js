@@ -18,10 +18,6 @@ window.onload = function(){
 	var setting = { timestampsInSnapshots:true };
 	db.settings(setting);
 	
-	// firebaseメッセージの作成
-	var messaging = firebase.messaging();
-
-	
 	// イベント取得クリック時
 	document.getElementById("get_btn").onclick = function() {
 		// 初期化
@@ -40,7 +36,7 @@ window.onload = function(){
 	};
 	
 	// // イベント追加クリック時
-	document.getElementById("write_btn").onclick = function() {
+	document.getElementById("add_btn").onclick = function() {
 		// フォームから値を取得
 		var event_title = document.getElementById("event_title").value;
 		var event_date  = document.getElementById("event_date").value;
@@ -55,18 +51,20 @@ window.onload = function(){
 		// フォームの初期化
 		document.getElementById("event_title").value = "";
 		document.getElementById("event_date").value = "";
+		
+		// push通知作成
+		Push.create(
+			"プッシュ通知です", {
+			body: "テスト通知",
+			icon: "../img/BIG_APPLE.png",
+			timeout: 4000,
+			onClick: function () {
+				window.focus();
+				this.close();
+			}
+		});
+		
 	};
-	
-	// token取得クリック時
-	document.getElementById("gettoken_btn").onclick = function() {
-		requestPermission(messaging);
-	};
-	
-	
-	// 通知許可ウィンドウ
-	//Notification.requestPermission(function(status) {
-	//	console.log("通知の許可:", status); //コンソールに許可されたかどうかを表示
-	//});
 	
 
 };
@@ -102,41 +100,3 @@ function getNowDate(){
 	return now;
 }
 
-function requestPermission(messaging) {
-	//プッシュ通知の許可をする処理
-	console.log('Requesting permission...');
-	// [START request_permission]
-	messaging.requestPermission().then(function() {
-	console.log('Notification permission granted.');
-	// TODO(developer): Retrieve an Instance ID token for use with FCM.
-	// [START_EXCLUDE]
-	// In many cases once an app has been granted notification permission, it
-	// should update its UI reflecting this.
-	viewToken(messaging);
-	// [END_EXCLUDE]
-	}).catch(function(err) {
-		console.log('Unable to get permission to notify.', err);
-	});
-	// [END request_permission]
-}
-
-
-function viewToken(messaging){
-	messaging.getToken().then(function(currentToken) {
-	console.log(currentToken);
-	if (currentToken) {
-		console.log('トークンにゃ : '+ currentToken);//フキダシにトークンを表示。
-	}
-	else{
-		// Show permission request.
-		console.log('No Instance ID token available. Request permission to generate one.');
-		// Show permission UI.
-		updateUIForPushPermissionRequired();
-		setTokenSentToServer(false);
-	}
-	}).catch(function(err) {
-		console.log('An error occurred while retrieving token. ', err);
-		showToken('Error retrieving Instance ID token. ', err);
-		setTokenSentToServer(false);
-	});
-}
