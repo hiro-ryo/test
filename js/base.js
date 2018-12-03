@@ -10,9 +10,6 @@ window.onload = function(){
 				// サインイン成功時のコールバック関数
 				// 戻り値で自動的にリダイレクトするかどうかを指定
 				
-				document.getElementById('main_content').style.display = 'block';
-				document.getElementById('firebaseui-auth-container').style.display = 'none';
-				
 				return true;
 			},
 			uiShown: function() {
@@ -30,9 +27,19 @@ window.onload = function(){
 		tosUrl: '<your-tos-url>'
 	};
 	
+	firebase.auth().onAuthStateChanged(function(user) {
+	if (user) {
+		// User is signed in.
+		console.log('auth user', user);
+		document.getElementById('main_content').style.display = 'block';
+		document.getElementById('firebaseui-auth-container').style.display = 'none';
+	} else {
+		// FirebaseUI描画開始
+		ui.start('#firebaseui-auth-container', uiConfig);
+	}
+});
 	
-	// FirebaseUI描画開始
-	ui.start('#firebaseui-auth-container', uiConfig);
+	
 	
 	
 	
