@@ -1,5 +1,40 @@
 window.onload = function(){
 	
+	// FirebaseUIインスタンス初期化
+	var ui = new firebaseui.auth.AuthUI(firebase.auth());
+	
+	// FirebaseUIの各種設定
+	var uiConfig = {
+		callbacks: {
+			signInSuccess: function(currentUser, credential, redirectUrl) {
+				// サインイン成功時のコールバック関数
+				// 戻り値で自動的にリダイレクトするかどうかを指定
+				return true;
+			},
+			uiShown: function() {
+				// FirebaseUIウィジェット描画完了時のコールバック関数
+				// 読込中で表示しているローダー要素を消す
+				document.getElementById('loader').style.display = 'none';
+			}
+		},
+		 // リダイレクトではなく、ポップアップでサインインフローを表示
+		signInFlow: 'popup',
+		signInSuccessUrl: '<url-to-redirect-to-on-success>',
+		signInOptions: [
+			// サポートするプロバイダ(メールアドレス)を指定
+			firebase.auth.EmailAuthProvider.PROVIDER_ID,
+		],
+		// Terms of service url.(サービス利用規約ページの)
+		tosUrl: '<your-tos-url>'
+	};
+	
+	
+	// FirebaseUI描画開始
+	ui.start('#firebaseui-auth-container', uiConfig);
+	
+	
+	
+	
 	// firestoreインスタンスの生成
 	var db = firebase.firestore();
 	
@@ -24,7 +59,7 @@ window.onload = function(){
 		});
 	};
 	
-	// // イベント追加クリック時
+	// イベント追加クリック時
 	document.getElementById("add_btn").onclick = function() {
 		// フォームから値を取得
 		var event_title = document.getElementById("event_title").value;
