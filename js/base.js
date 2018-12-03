@@ -9,6 +9,9 @@ window.onload = function(){
 			signInSuccess: function(currentUser, credential, redirectUrl) {
 				// サインイン成功時のコールバック関数
 				// 戻り値で自動的にリダイレクトするかどうかを指定
+				
+				document.getElementById('loader').style.display = 'block';
+				
 				return true;
 			},
 			uiShown: function() {
